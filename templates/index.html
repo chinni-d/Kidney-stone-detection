@@ -188,7 +188,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         padding: 1.5rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -547,10 +547,14 @@
       @media (max-width: 768px) {
         .nav-container {
           padding: 0 1.5rem;
+          justify-content: space-between;
+          width: 100%;
         }
 
         .logo {
           font-size: 1.3rem;
+          margin-right: auto;
+          padding-right: 0;
         }
 
         .logo i {
@@ -563,10 +567,29 @@
 
         .mobile-menu-btn {
           display: flex;
+          width: 45px;
+          height: 45px;
+          font-size: 1.5rem;
+          margin-left: auto;
         }
 
         .mobile-menu {
           display: block;
+          top: 70px;
+          padding: 1.5rem;
+        }
+
+        .mobile-menu a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.8rem;
+          padding: 1rem;
+          font-size: 1.1rem;
+        }
+
+        .mobile-menu a i {
+          font-size: 1.1rem;
         }
 
         .main-content {
@@ -617,6 +640,7 @@
 
         .logo {
           font-size: 1.2rem;
+          margin-right: auto;
         }
 
         .logo i {
@@ -627,6 +651,17 @@
           width: 40px;
           height: 40px;
           font-size: 1.3rem;
+          margin-left: auto;
+        }
+
+        .mobile-menu {
+          top: 60px;
+          padding: 1rem;
+        }
+
+        .mobile-menu a {
+          font-size: 1rem;
+          padding: 0.8rem;
         }
 
         .main-content {
@@ -827,52 +862,38 @@
     </footer>
 
     <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const body = document.body;
 
-      // Mobile menu toggle
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          mobileMenuBtn.classList.toggle("active");
+          body.classList.toggle("menu-open");
+        });
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("active");
-        const icon = mobileMenuBtn.querySelector("i");
-        if (mobileMenu.classList.contains("active")) {
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-times");
-        } else {
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        }
-      });
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuBtn.contains(event.target) &&
+            mobileMenu.classList.contains("active")
+          ) {
+            mobileMenu.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+            body.classList.remove("menu-open");
+          }
+        });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (e) => {
-        if (
-          !mobileMenu.contains(e.target) &&
-          !mobileMenuBtn.contains(e.target)
-        ) {
-          mobileMenu.classList.remove("active");
-          const icon = mobileMenuBtn.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-        }
-      });
-
-      // Close mobile menu when clicking a link
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.remove("active");
-          const icon = mobileMenuBtn.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+            body.classList.remove("menu-open");
+          });
         });
       });
     </script>

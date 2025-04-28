@@ -65,13 +65,6 @@
         width: 100%;
         top: 0;
         z-index: 1000;
-        transition: all 0.3s ease;
-      }
-
-      .navbar.scrolled {
-        padding: 0.8rem 0;
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
       }
 
       .nav-container {
@@ -188,7 +181,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         padding: 1.5rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -335,21 +328,20 @@
 
       /* Responsive Design */
       @media (max-width: 768px) {
-        .main-content {
-          margin-top: 70px;
-          padding: 1.5rem;
+        .nav-container {
+          padding: 0 1.5rem;
+          justify-content: space-between;
+          width: 100%;
         }
 
-        .detection-container {
-          padding: 2rem;
+        .logo {
+          font-size: 1.3rem;
+          margin-right: auto;
+          padding-right: 0;
         }
 
-        .detection-title {
-          font-size: 1.8rem;
-        }
-
-        .loading-icon {
-          font-size: 2.5rem;
+        .logo i {
+          font-size: 1.5rem;
         }
 
         .nav-links {
@@ -358,33 +350,71 @@
 
         .mobile-menu-btn {
           display: flex;
+          width: 45px;
+          height: 45px;
+          font-size: 1.5rem;
+          margin-left: auto;
         }
 
         .mobile-menu {
           display: block;
+          top: 70px;
+          padding: 1.5rem;
+        }
+
+        .mobile-menu a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.8rem;
+          padding: 1rem;
+          font-size: 1.1rem;
+        }
+
+        .mobile-menu a i {
+          font-size: 1.1rem;
+        }
+
+        .main-content {
+          margin-top: 70px;
+          padding: 1.5rem;
         }
       }
 
       @media (max-width: 480px) {
-        .main-content {
-          margin-top: 60px;
+        .nav-container {
+          padding: 0 1rem;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+          margin-right: auto;
+        }
+
+        .logo i {
+          font-size: 1.4rem;
+        }
+
+        .mobile-menu-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 1.3rem;
+          margin-left: auto;
+        }
+
+        .mobile-menu {
+          top: 60px;
           padding: 1rem;
         }
 
-        .detection-container {
-          padding: 1.5rem;
+        .mobile-menu a {
+          font-size: 1rem;
+          padding: 0.8rem;
         }
 
-        .detection-title {
-          font-size: 1.5rem;
-        }
-
-        .detection-subtitle {
-          font-size: 0.9rem;
-        }
-
-        .loading-icon {
-          font-size: 2rem;
+        .main-content {
+          margin-top: 60px;
+          padding: 1rem;
         }
       }
 
@@ -600,133 +630,6 @@
           gap: 1.5rem;
         }
       }
-
-      @media (max-width: 768px) {
-        .nav-container {
-          padding: 0 1.5rem;
-        }
-
-        .logo {
-          font-size: 1.3rem;
-        }
-
-        .logo i {
-          font-size: 1.5rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .mobile-menu-btn {
-          display: flex;
-        }
-
-        .mobile-menu {
-          display: block;
-        }
-
-        .main-content {
-          margin-top: 70px;
-          padding: 1.5rem;
-        }
-
-        .content-section {
-          grid-template-columns: 1fr;
-          padding: 2rem;
-        }
-
-        .text-content {
-          padding-right: 0;
-          text-align: center;
-        }
-
-        .main-title {
-          font-size: 2rem;
-        }
-
-        .main-description {
-          font-size: 1rem;
-        }
-
-        .image-content::before {
-          display: none;
-        }
-
-        .footer-container {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .footer-section {
-          text-align: center;
-        }
-
-        .social-icons {
-          justify-content: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .nav-container {
-          padding: 0 1rem;
-        }
-
-        .logo {
-          font-size: 1.2rem;
-        }
-
-        .logo i {
-          font-size: 1.4rem;
-        }
-
-        .mobile-menu-btn {
-          width: 40px;
-          height: 40px;
-          font-size: 1.3rem;
-        }
-
-        .main-content {
-          margin-top: 60px;
-          padding: 1rem;
-        }
-
-        .main-title {
-          font-size: 1.8rem;
-        }
-
-        .main-description {
-          font-size: 0.95rem;
-        }
-
-        .try-now-btn {
-          padding: 12px 25px;
-          font-size: 1.1rem;
-        }
-
-        .about-section {
-          padding: 1.5rem 1rem;
-        }
-
-        .about-title {
-          font-size: 1.8rem;
-          margin-bottom: 1.2rem;
-        }
-
-        .about-card {
-          padding: 1.2rem;
-        }
-
-        .about-card h3 {
-          font-size: 1.2rem;
-          margin-bottom: 0.8rem;
-        }
-
-        .about-card p {
-          font-size: 0.95rem;
-          line-height: 1.5;
-        }
-      }
     </style>
   </head>
   <body>
@@ -843,16 +746,7 @@
     </footer>
 
     <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
+      // Remove scroll event listener
       // Mobile menu toggle
       const mobileMenuBtn = document.getElementById("mobileMenuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
