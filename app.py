@@ -60,7 +60,7 @@ def predict():
 def result():
     label = request.args.get('label')
     return render_template('result.html', label=label)
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
